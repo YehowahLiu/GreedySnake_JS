@@ -3,9 +3,17 @@
     <head>
         <meta charset="UTF-8" />
         <title>
-            TODO
+            贪吃蛇游戏
         </title>
         <link rel="stylesheet" href="index.css" />
     </head>
-    <body></body>
+    <body>
+        <div id="map"></div>
+        <script src="js/greedysneak.js"></script>
+        <script>
+            var map = document.querySelector("#map");
+            var game = new Game(map);
+            game.start();
+        </script>
+    </body>
 </html>
