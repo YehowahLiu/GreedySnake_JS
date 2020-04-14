@@ -33,5 +33,5 @@
 
 ### 参考资料
 
-[【前端笔记】js简单代码实现贪吃蛇]: (https://blog.csdn.net/weixin_41606276/article/details/81432105)
-[javascript贪吃蛇游戏源码]: (https://blog.csdn.net/github_27314097/article/details/82988719)
+[【前端笔记】js 简单代码实现贪吃蛇](https://blog.csdn.net/weixin_41606276/article/details/81432105)
+[javascript 贪吃蛇游戏源码](https://blog.csdn.net/github_27314097/article/details/82988719)
