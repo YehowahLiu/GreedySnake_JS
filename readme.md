@@ -28,11 +28,17 @@
 
 3. 交互逻辑优化**TODO**
 
-    - 进入网页时，显示默认游戏地图和三个选项：游戏规则、开始游戏、自定义
-    - 游戏结束后，显示当前得分和再来一次按钮
+    - 进入网页时，显示默认游戏地图和三个选项：游戏规则、开始游戏、游戏设置
+    - 游戏结束后，显示当前得分、死亡次数
+    - 游戏规则、游戏设定和死亡信息面板由可隐藏页面元素组成
+    - 开始游戏后隐藏无关元素，避免干扰和误触，游戏结束后重新显示
 
 ### 参考资料
 
-[【前端笔记】js 简单代码实现贪吃蛇](https://blog.csdn.net/weixin_41606276/article/details/81432105)
-[javascript 贪吃蛇游戏源码](https://blog.csdn.net/github_27314097/article/details/82988719)
-[CSS 教程|菜鸟教程](https://www.runoob.com/css/css-tutorial.html)
+1.[【前端笔记】js 简单代码实现贪吃蛇](https://blog.csdn.net/weixin_41606276/article/details/81432105)
+
+2.[ javascript 贪吃蛇游戏源码](https://blog.csdn.net/github_27314097/article/details/82988719)
+
+3.[ 菜鸟教程](https://www.runoob.com/css/)
+
+4.[ W3school](https://www.w3school.com.cn/)
