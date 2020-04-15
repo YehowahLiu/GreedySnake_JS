@@ -2,18 +2,103 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>
-            贪吃蛇游戏
-        </title>
+        <title>贪吃蛇游戏</title>
         <link rel="stylesheet" href="index.css" />
+        <script src="js/greedysnake.js"></script>
     </head>
     <body>
-        <div id="map"></div>
-        <script src="js/greedysnake.js"></script>
+        <!-- 标题 -->
+        <div id="header">贪&nbsp;&nbsp;吃&nbsp;&nbsp;蛇</div>
+        <!-- 可隐藏的游戏规则面板 -->
+        <div id="box_gamerule" class="floatcontainer" style="display: none;">
+            <div>
+                <h2 style="text-align: center;">游戏规则</h2>
+                <div style="text-align: center;">
+                    <p>
+                        控制小蛇吃到地图中随机生成的食物，吃到食物越多，得分越高
+                    </p>
+                    <p>默认键位为四个方向键，在游戏设定面板可进行更改</p>
+                    <p>
+                        注意：不要让蛇撞到自己身体或者四周的墙壁，否则游戏失败
+                    </p>
+                    <p>点击 开始游戏 按钮，开始玩耍吧！</p>
+                    <div
+                        class="mybutton"
+                        style="margin-top: 5%; margin-left: 40%;"
+                    >
+                        <div
+                            class="mybuttonfont"
+                            onclick="document.getElementById('box_gamerule').style.display='none'"
+                        >
+                            我知道了
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- TODO 可隐藏游的戏设定面板 -->
+        <div id="box_option" class="floatcontainer" style="display: none;">
+            <div>
+                <h2 style="text-align: center;">游戏设置</h2>
+                <div></div>
+            </div>
+        </div>
+
+        <div id="box_deathinfo" class="floatcontainer" style="display: none;">
+            <div>
+                <br />
+                <div style="color: red; font-size: 20px; text-align: center;">
+                    GAME&nbsp;&nbsp;OVER
+                </div>
+                <br />
+                <div id="death_info_text" style="text-align: center;"></div>
+            </div>
+            <div
+                class="mybutton"
+                style="margin-top: 8%; margin-left: 36%;"
+                onclick="document.getElementById('box_deathinfo').style.display='none'"
+            >
+                <div class="mybuttonfont">关闭</div>
+            </div>
+        </div>
+
+        <div id="mainbody">
+            <div id="map"></div>
+            <div id="sidebar">
+                <div
+                    class="mybutton"
+                    style="margin-top: 175px;"
+                    onclick="btn_clk(document.getElementById('box_gamerule').style)"
+                >
+                    <div class="mybuttonfont">游戏规则</div>
+                </div>
+                <div
+                    class="mybutton"
+                    style="margin-top: 250px;"
+                    onclick="btn_clk(document.getElementById('box_option').style)"
+                >
+                    <div class="mybuttonfont">游戏设置</div>
+                </div>
+                <div
+                    class="mybutton"
+                    style="margin-top: 325px;"
+                    onclick="startgame(map)"
+                >
+                    <div class="mybuttonfont">开始游戏</div>
+                </div>
+            </div>
+        </div>
         <script>
             var map = document.querySelector("#map");
             var game = new Game(map);
-            game.start();
         </script>
+        <div id="footer">
+            <br />2020年春web程序设计大作业<br /><a
+                href="https://github.com/YehowahLiu/GreedySnake_JS"
+                target="view_window"
+                style="color: gray; text-decoration: none;"
+                >项目Git主页</a
+            >
+        </div>
     </body>
 </html>

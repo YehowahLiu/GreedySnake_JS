@@ -4,6 +4,7 @@ var snake_init_length = 3,
     key_right = 39,
     key_bottom = 40,
     tick_rate = 100,
+    snake_death = 0,
     snake_length = snake_init_length;
 
 function Food(m) {
@@ -56,6 +57,7 @@ function Snake(m, f) {
 }
 
 Snake.prototype.init = function () {
+    this.direction = "right";
     for (var i = 0; i < snake_init_length; i++) {
         var newHead = document.createElement("div");
         // 创建新蛇头的div元素
@@ -135,7 +137,7 @@ Snake.prototype.move = function () {
         obj.top == 600 ||
         this.inSnake(obj.left, obj.top) //如果将要移动的位置出了地图或在蛇身体内部，游戏结束
     ) {
-        alert("想不开死了");
+        gameover();
         return true;
     } else {
         // 否则，蛇向所选方向移动一格
@@ -188,3 +190,79 @@ Game.prototype.start = function () {
         }
     };
 };
+
+Game.prototype.destory = function () {
+    //加入游戏的销毁机制，清除游戏中产生的蛇和食物，便于开始下一次游戏
+    var snakebody = this.snake.body;
+    snakebody.unshift(this.food.div);
+    for (; snake_length > -1; snake_length--) {
+        snakebody[0].parentNode.removeChild(snakebody[snake_length]);
+    }
+    snake_length = snake_init_length;
+};
+
+function startgame(m) {
+    //更改游戏开始机制，使其能够在不刷新的情况下进行重新开始
+    if (snake_death != 0) {
+        game.destory();
+        game = new Game(m);
+    }
+    map_only();
+    game.start();
+}
+
+function gameover() {
+    // 添加游戏结束的处理
+    document.getElementById("sidebar").style.display = "";
+    // 死亡后将网页格式恢复
+    snake_death++;
+    // 死亡次数加一
+    var info = document.getElementById("death_info_text");
+    info.innerHTML =
+        "一共死亡了" +
+        snake_death +
+        "次<br /><br />本轮得分为:" +
+        (snake_length - snake_init_length);
+    // 写入死亡信息
+    document.getElementById("box_deathinfo").style.display = "";
+    // 展示死亡信息面板
+    show_all();
+}
+
+function hideboxs() {
+    // 用于隐藏所有浮动框，包括游戏设置、死亡信息面板、玩法信息面板
+    document.getElementById("box_gamerule").style.display = "none";
+    document.getElementById("box_option").style.display = "none";
+    document.getElementById("box_deathinfo").style.display = "none";
+}
+
+function map_only() {
+    // 只显示地图，防止其他元素干扰游戏进行
+    hideboxs();
+    // var m = document.getElementById("map");
+    document.getElementById("footer").style.display = "none";
+    // document.getElementById("header").style.display = "none";
+    document.getElementById("sidebar").style.display = "none";
+    // m.style.margin = "0 auto";
+    // m.style.left = "15%";
+    // m.style.float = "";
+}
+
+function show_all() {
+    // 显示除浮动框外所有页面必要元素，便于在游戏结束后的操作
+    document.getElementById("footer").style.display = "";
+    // document.getElementById("header").style.display = "";
+    document.getElementById("sidebar").style.display = "";
+    // var m = document.getElementById("map");
+    // m.style.margin = "";
+    // m.style.left = "15%";
+    // m.style.float = "left";
+}
+
+function btn_clk(box) {
+    // 点击侧边栏按键时，将其他box隐藏，并切换按键对应box的显隐方式
+    var box_value = box.display;
+    hideboxs();
+    if (box_value == "none") box.display = "";
+    else box.display = "none";
+}
