@@ -1,6 +1,6 @@
 # 贪吃蛇游戏(via html)
 
-[在线演示](http://htmlpreview.github.io/?https://github.com/YehowahLiu/GreedySnake_JS/blob/master/index.html)
+[在线演示](https://yehowahliu.github.io/GreedySnake_JS/index.html)
 
 > 2020 年春 Web 程序设计大作业
 
