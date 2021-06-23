@@ -1,7 +1,5 @@
 # 贪吃蛇游戏(via html)
 
-[在线演示](https://yehowahliu.github.io/GreedySnake_JS/index.html)
-
 > 2020 年春 Web 程序设计大作业
 
 ### 游戏基本规则
